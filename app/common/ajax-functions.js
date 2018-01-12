@@ -1,7 +1,6 @@
 'use strict';
-
-var appUrl = window.location.origin;
-var ajaxFunctions = {
+const appUrl = window.location.origin;
+const ajaxFunctions = {
    ready: function ready (fn) {
       if (typeof fn !== 'function') {
          return;
@@ -14,11 +13,11 @@ var ajaxFunctions = {
       document.addEventListener('DOMContentLoaded', fn, false);
    },
    ajaxRequest: function ajaxRequest (method, url, callback) {
-      var xmlhttp = new XMLHttpRequest();
+      const xmlhttp = new XMLHttpRequest();
 
-      xmlhttp.onreadystatechange = function () {
-         if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-            callback(xmlhttp.response);
+      xmlhttp.onreadystatechange = () => {
+         if (xmlhttp.readyState === 4) {
+            callback(xmlhttp.response, xmlhttp.status, xmlhttp.statusText, xmlhttp.getResponseHeader("userId"));
          }
       };
 

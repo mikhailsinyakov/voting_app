@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Voting app</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+		<link href="/public/css/main.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<header class="container-fluid text-center">
+			<p>Welcome, <span id="display-name">guest</span>!</p>
+			<nav class="nav nav-pills justify-content-center">	
+				<a class="nav-link" id="home" href="/">Home</a>
+				<a class="nav-link isAuth false" id="my_polls" href="/my_polls">My polls</a>
+				<a class="nav-link isAuth false" id="profile" href="/profile">Profile</a>
+				<a class="nav-link" id="log" href="/login">Login</a>
+			</nav>
+		</header>
+	    <div class="container jumbotron text-center">
+    	    <h2>You have created a new poll.</h2>
+    		<p>
+    			You can share a link with your friends:
+    		    <a id="newPollLink" href="#"></a>
+			</p>
+			<p><a href="https://voting-app-mikhailsinyakov.c9users.io">Continue</a></p>
+	    </div>
+	    <script type="text/javascript" src="../../common/showContentForAuth.js"></script>
+	    <script type="text/javascript" src="../../common/ajax-functions.js"></script>
+    	<script type="text/javascript" src="../../controllers/userController.client.js"></script>
+	    <script type="text/javascript" src="../../common/fillDataOfNewPoll.js"></script>
+	</body>
+</html>

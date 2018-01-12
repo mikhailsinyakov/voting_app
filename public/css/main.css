@@ -1,4 +1,3 @@
-/********* Fonts **********/
 
 @font-face {
   font-family: 'Roboto';
@@ -14,8 +13,7 @@
   src: local('Roboto Medium'), local('Roboto-Medium'), url('../fonts/Roboto-Medium.ttf') format('truetype');
 }
 
-/****** Main Styling ******/
-
+/* Common rules */
 body {
 	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
@@ -24,25 +22,39 @@ body {
 }
 
 header {
-	color: #00BCD4;
-	height: 56px;
+	color: black;
+	height: 100px;
 	margin: 0 0 14px 0;
-	text-align: center;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	background: lightblue;
+}
+
+a {
+	text-decoration: none;
 }
 
 p {
 	margin: 8px 0 0 0;
 }
 
-.container p {
-	text-align: center;
-	padding: 0;
+span {
+	font-weight: 500;
 }
 
-/****** Header Styling ******/
+form {
+	margin-top: 50px;
+}
 
+/* Header's rules*/
 header p {
 	margin: 16px 0 5px 0;
+}
+
+header a ~ p {
+	padding: 0;
+	display: inline;
+	color: #ECEFF1;
 }
 
 .menu {
@@ -64,18 +76,9 @@ header p {
 	color: #FF630D;
 }
 
-header a ~ p {
-	margin: 0;
-	padding: 0;
-	display: inline;
-	color: #ECEFF1;
-}
-
 #display-name {
 	font-weight: 400;
 }
-
-/****** Login Styling ******/
 
 .login {
 	margin: 86px auto 0 auto;
@@ -97,66 +100,24 @@ header a ~ p {
 	margin-left: 10px
 }
 
-/****** Logo Div Styling ******/
-
 img {
 	margin: 0 auto;
 	display: block;
 }
 
-.clementine-text { /* Styling for the Clementine.js text */
-	padding: 0;
-	margin: -25px 0 0 0;
-	font-weight: 500;
-	font-size: 60px;
-	color: #FFA000;
+.btn-addRemoveElements {
+	background: transparent;
+	color: black;
+	font-weight: bold;
+	margin-left: 10px;
+	font-size: 30px;
 }
 
-/****** Click Styling ******/
-
-.btn-container {	/* Styling for the div that contains the buttons */
-	margin: -10px auto 0 auto;
-	text-align: center;
-}
-
-.btn {	/* Styling for buttons */
-	margin: 0 8px;
-	color: white;
-	background-color: #00BCD4;
-	display: inline-block;
-	border: 0;
-	font-size: 14px;
-	border-radius: 3px;
-	padding: 10px 5px;
-	width: 100px;
-	font-weight: 500;
-}
-
-.btn:focus {	/* Remove outline when hovering over button */
-	outline: none;
-}
-
-.btn:active {	/* Scale the button down by 10% when clicking on button */
-	transform: scale(0.9, 0.9);
-	-webkit-transform: scale(0.9, 0.9);
-	-moz-transform: scale(0.9, 0.9);
-}
-
-.btn-delete {	/* Styling for delete button */
-	background-color: #ECEFF1;
-	color: #212121;
-}
-
-#click-nbr {
-	font-weight: 400;
-}
-
-/****** Profile Styling ******/
-
+/*Rules for github profile*/
 .github-profile {
 	width: 350px;
 	height: 200px;
-	border-radius: 3px;
+	border-radius: 10px;
 	margin: 86px auto 0 auto;
 	background-color: #EEE;
 	text-align: center;
@@ -180,10 +141,6 @@ img {
 	font-weight: 400;
 }
 
-span {
-	font-weight: 500;
-}
-
 .github-profile > img {
 	padding-top: 16px;
 	margin-bottom: 16px;
@@ -197,8 +154,35 @@ span {
 	color: #FF630D;
 }
 
-#menu-divide {
-	color: #FFFFFF;
-	display: inline;
-	margin: 0;
+/* Others rules*/
+
+.container ul {
+	display: block;
+}
+
+.container ul li {
+	display: block;
+}
+
+.left-side {
+	float: left;
+	width: 50%;
+	padding-left: 20px;
+}
+
+.right-side {
+	float: right;
+	width: 40%;
+}
+
+#addNewPoll {
+	margin: 10px;
+}
+
+.isAuth.false {
+	display: none;
+}
+
+.isAuth.true {
+	display: inline-block;
 }

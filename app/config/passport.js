@@ -1,16 +1,16 @@
 'use strict';
 
-var GitHubStrategy = require('passport-github').Strategy;
-var User = require('../models/users');
-var configAuth = require('./auth');
+const GitHubStrategy = require('passport-github').Strategy;
+const User = require('../models/users');
+const configAuth = require('./auth');
 
-module.exports = function (passport) {
-	passport.serializeUser(function (user, done) {
+module.exports = passport => {
+	passport.serializeUser((user, done) => {
 		done(null, user.id);
 	});
 
-	passport.deserializeUser(function (id, done) {
-		User.findById(id, function (err, user) {
+	passport.deserializeUser((id, done) => {
+		User.findById(id, (err, user) => {
 			done(err, user);
 		});
 	});
@@ -21,8 +21,8 @@ module.exports = function (passport) {
 		callbackURL: configAuth.githubAuth.callbackURL
 	},
 	function (token, refreshToken, profile, done) {
-		process.nextTick(function () {
-			User.findOne({ 'github.id': profile.id }, function (err, user) {
+		process.nextTick(() => {
+			User.findOne({ 'github.id': profile.id }, (err, user) => {
 				if (err) {
 					return done(err);
 				}
@@ -36,9 +36,8 @@ module.exports = function (passport) {
 					newUser.github.username = profile.username;
 					newUser.github.displayName = profile.displayName;
 					newUser.github.publicRepos = profile._json.public_repos;
-					newUser.nbrClicks.clicks = 0;
 
-					newUser.save(function (err) {
+					newUser.save(err => {
 						if (err) {
 							throw err;
 						}

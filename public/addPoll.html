@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Voting app</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+		<link href="/public/css/main.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<header class="container-fluid text-center">
+			<p>Welcome, <span id="display-name">guest</span>!</p>
+			<nav class="nav nav-pills justify-content-center">	
+				<a class="nav-link" id="home" href="/">Home</a>
+				<a class="nav-link isAuth false" id="my_polls" href="/my_polls">My polls</a>
+				<a class="nav-link isAuth false" id="profile" href="/profile">Profile</a>
+				<a class="nav-link" id="log" href="/login">Login</a>
+			</nav>
+		</header>
+	    <form class="text-center" id="addPollForm" method="POST" action="/api/polls">
+	        <div class="form-group col-md-4 offset-md-4 col-6 offset-3">
+	        	<label for="pollName">Poll name</label>
+	        	<input type="text" name="pollName" placeholder="Enter a poll name" id="pollName" class="form-control" required />
+	        </div>
+	        <div id="pollOptions" class="form-group col-md-4 offset-md-4 col-6 offset-3">
+	        	<label>Options:</label>
+		        <input type="text" name="option1" placeholder="Enter an option" class="form-control options" required /><br>
+		        <input type="text" name="option2" placeholder="Enter an option" class="form-control options" required /><br>
+		        <input type="text" name="user_id" id="userId" style="display: none"} />
+	        </div>
+	        <button class="btn btn-addRemoveElements" id="addOption-js" type="button"><b>↓</b></button><br>
+	        <button class="btn btn-primary" type="submit">Add the poll</button>
+	    </form>
+	    <script type="text/javascript" src="common/showContentForAuth.js"></script>
+	    <script type="text/javascript" src="common/isValidPoll.js"></script>
+	    <script type="text/javascript" src="common/ajax-functions.js"></script>
+    	<script type="text/javascript" src="controllers/userController.client.js"></script>
+    	<script type="text/javascript" src="common/addOption.js"></script>
+	</body>
+</html>
