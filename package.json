@@ -9,6 +9,8 @@
   },
   "homepage": "https://voting-app-mikhailsinyakov.c9users.io/",
   "keywords": [
+    "express",
+    "app",
     "voting"
   ],
   "scripts": {
